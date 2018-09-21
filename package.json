@@ -1,0 +1,34 @@
+{
+  "name": "casserole",
+  "version": "1.0.0",
+  "description": "npm de casserole",
+  "dependencies": {
+    "angular-calendar": "^0.23.7",
+    "babel-runtime": "^6.22.0",
+    "bcrypt": "^0.8.7",
+    "core-js": "^2.5.3",
+    "docxtemplater": "^3.0.3",
+    "dom-parser": "0.1.5",
+    "fibers": "^1.0.15",
+    "jquery": "^3.1.1",
+    "jszip": "^2.6.1",
+    "moment": "^2.17.1",
+    "object-hash": "^1.1.5",
+    "unoconv2": "^1.0.0"
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rzamarripa/casseroleEsc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rzamarripa/casseroleEsc/issues"
+  },
+  "homepage": "https://github.com/rzamarripa/casseroleEsc#readme"
+}
