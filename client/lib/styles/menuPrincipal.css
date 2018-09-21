@@ -1,0 +1,37 @@
+.btn-menu {
+    color: #fff;
+    background-color: #f5ac3f;
+    border-color: #ed913d;
+}
+
+#carousel-example-generic {
+    width: 924px;
+    padding-left: 41px;
+    position: absolute;
+    left:50%;
+    margin-left: -462px;
+}
+/*
+.carousel-inner {
+    margin: auto;
+    width: 90%;
+}*/
+
+.carousel-caption {
+    color: red;
+}
+
+a.right:link,
+a.right:hover,
+a.left:link,
+a.left:hover {
+    background: initial;
+}
+a.left .glyphicon-chevron-left,
+a.right .glyphicon-chevron-right {
+    color: red;
+}
+
+.item img{
+    display: inline!important;
+}

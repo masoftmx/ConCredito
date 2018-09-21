@@ -1,0 +1,47 @@
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 40px; 
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+.td-sm {
+	padding: 5px 0px !important;
+}
+
+.ver-grupos {
+	width: 70px; 
+	height: 60px; 
+	font-size: 50px;
+}
+
+.ver-productos {
+	height: 120px; 
+	margin-top: 20px;
+}
+
+.img-productos {
+	width: 70px; 
+	height: 60px;
+}
+
+.btn-ir-grupos {
+	height: 120px; 
+	margin-top: 20px;
+}
+
+.btn-grupos {
+	width: 33%;
+	white-space: normal;
+}
+
+.btn-mesas {
+	width: 33%;
+	white-space: normal;
+}
+
+.bg-white {
+	background-color: white !important;
+}
