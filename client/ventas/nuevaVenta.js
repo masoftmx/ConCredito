@@ -73,7 +73,8 @@ angular.module("interCeramic")
 		
 		this.agregar = function(articulo_id)
 		{
-			var permiso = false
+			if(rc.configuracion.length!=0){
+				var permiso = false
 			this.articuloYaSeleccionado = true
 			
 			rc.articulo =  Articulos.findOne({_id : articulo_id})
@@ -110,13 +111,15 @@ angular.module("interCeramic")
 				toastr.error('Ya agrego este producto.');
 			}
 			rc.venta.enganche = (rc.configuracion[0].enganche/100) * rc.articulo.precioFinal
-		
-			//rc.venta.enganchexplazo = Math.round(rc.venta.enganchexplazo);
-		//	rc.venta.enganchexplazo = rc.venta.enganchexplazo/100
 			rc.venta.bonificacion = rc.venta.enganche * ((rc.configuracion[0].tasa * rc.configuracion[0].plazo/100))
 			rc.venta.totalAdeudo= rc.total - rc.venta.enganche -rc.venta.bonificacion 
-			//rc.venta.enganche = Math.round(rc.venta.enganche);
 			rc.articulo  = {}
+
+			}else{
+				toastr.error('Debes tener Configuraciones primero.');
+
+			}
+			
 
 		}
 
@@ -212,8 +215,13 @@ angular.module("interCeramic")
 
 		this.borrarArticulo = function($index,item)
 		{
-			rc.articulosArray.splice($index, 1)
-				rc.total = rc.total - item.precioFinal
+			console.log(item)
+//rc.total = rc.total - item.precioFinal
+			// 	rc.venta.enganche = (rc.configuracion[0].enganche/100) * rc.articulo.precioFinal
+			// rc.venta.bonificacion = rc.venta.enganche * ((rc.configuracion[0].tasa * rc.configuracion[0].plazo/100))
+			// rc.venta.totalAdeudo= rc.total - rc.venta.enganche -rc.venta.bonificacion 
+
+		//	rc.articulosArray.splice($index, 1)
 			
 		}
 

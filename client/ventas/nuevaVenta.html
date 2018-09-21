@@ -72,13 +72,13 @@
 							</div>
 							<div class="col-sm-12" ng-show="ven.articuloYaSeleccionado">
 								<div class="row">
-										<div class="col-sm-4 pull-right"  ><strong>Enganche: </strong> {{ven.venta.enganche}} </div>
+										<div class="col-sm-4 pull-right"  ><strong>Enganche: </strong> {{ven.venta.enganche | currency}} </div>
 								</div>
 								<div class="row" ng-show="ven.articuloYaSeleccionado">
-									<div class="col-sm-4 pull-right"  ><strong>Bonificación Enganche: </strong> {{ven.venta.bonificacion}} </div>
+									<div class="col-sm-4 pull-right"  ><strong>Bonificación Enganche: </strong> {{ven.venta.bonificacion | currency}} </div>
 							</div>
 							<div class="row" ng-show="ven.articuloYaSeleccionado">
-								<div class="col-sm-4 pull-right"  ><strong>Total: </strong> {{ven.venta.totalAdeudo}} </div>
+								<div class="col-sm-4 pull-right"  ><strong>Total: </strong> {{ven.venta.totalAdeudo | currency}} </div>
 						</div>
 						<hr>
 			

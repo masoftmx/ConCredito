@@ -35,6 +35,7 @@ function ConfiguracionesCtrl($scope, $meteor, $reactive, $state, toastr) {
 		// }
 		config.estatus = true;
 		Configuraciones.insert(config);
+		toastr.success('Bien Hecho. La Configuracion ha sido registrada');
 		console.log(config);
 		rc.config = {};
 		this.nuevo = true

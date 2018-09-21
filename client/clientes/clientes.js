@@ -53,7 +53,7 @@ this.nuevoCliente = function()
 		{
 			toastr.error('No es posible continuar, debe ingresar "Apellido Materno" es obligatorio');
 		}
-		if(cliente.existencia== undefined )
+		if(cliente.rfc== undefined )
 		{
 			toastr.error('No es posible continuar, debe ingresar "RFC" es obligatorio');
 		}
@@ -79,6 +79,7 @@ this.guardar = function (cliente,form) {
 	cliente.nombreCompleto = nombre + apPaterno + apMaterno;
 	cliente.fechaCreacion = new Date();
 	Clientes.insert(cliente);
+	toastr.success('Bien Hecho. El Cliente ha sido registrado correctamente');
 	console.log(cliente);
 	rc.cliente = {};
 	this.nuevo = false

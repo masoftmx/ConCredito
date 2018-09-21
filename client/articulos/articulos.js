@@ -67,6 +67,7 @@ angular.module("interCeramic")
 		 articulo.nombreCompleto = nombre + apPaterno + apMaterno;
 		 articulo.fechaCreacion = new Date();
 		 Articulos.insert(articulo);
+		 toastr.success('Bien Hecho. El Articulo ha sido registrado correctamente');
 		 console.log(articulo);
 		 rc.articulo = {};
 		 this.nuevo = false
