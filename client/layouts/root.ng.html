@@ -1,0 +1,62 @@
+
+<header id="header"   ng-class="{'home' : home == true} "  ><!--ng-class="{'home' : root.home == true}"-->
+
+  <div class="pull-left" >
+<!-- <img style="margin-right: 60px;" height="75px" width="175px" src="img/interc.png"> -->
+</div>
+  <div class="pull-right">
+	  
+    <div id="hide-menu" class="btn-header pull-right">
+	    
+      <span>
+        <a toggle-menu title="Collapse Menu">
+          <i class="fa fa-reorder"></i>
+        </a>
+      </span>
+    </div>
+
+    <div class="btn-header pull-right">
+      <span>
+        <a ui-sref="anon.logout" title="Cerrar Sesión">
+          <i class="fa fa-sign-{{isLoggedIn() ? 'out' : 'in'}}"></i>
+        </a>
+      </span>
+    </div>
+
+    <div id="fullscreen" class="btn-header transparent pull-right">
+      <span>
+        <a full-screen title="Full Screen">
+          <i class="fa fa-arrows-alt"></i>
+        </a>
+      </span>
+    </div>
+  </div>
+</header>
+
+
+
+<div class="col-md-12">
+<aside id="left-panel" style="margin-top: -40px; margin-bottom: 5px;"  >
+  <div class="login-info">
+		<span ng-show="{{isLoggedIn()}}"> <!-- User image size is adjusted inside CSS, it should stay as it --> 
+			
+			<a  href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+				<img ng-src="{{root.currentUser.profile.fotografia}}" alt="me" class="online"> 
+				<span>
+					{{root.user}}
+				</span>
+				<i class="fa fa-angle-down"></i>
+			</a> 
+			
+		</span>
+	</div>
+  <!--<div ng-show="currentUser.username == 'admin'" ng-include=" 'client/layouts/left-nav.ng.html' "></div>
+  <div ng-show="currentUser.username != 'admin'" ng-include=" 'client/layouts/depto-nav.ng.html' "></div>-->
+  <div ng-include=" 'client/layouts/left-nav.ng.html' "></div>
+</aside>
+</div>
+
+<div id="main" role="main" style="margin-top: 20px;">
+
+  <div id="content" ui-view></div>
+</div>

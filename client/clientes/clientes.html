@@ -1,0 +1,81 @@
+<h2>Clientes</h2>
+<div class="row">
+	<div class="col-sm-12">
+		<a class="btn btn-{{c.nuevo == true ? 'primary' : 'danger'}}" role="button" data-toggle="collapse" 
+			href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="nuevoCliente" ng-click="c.nuevoCliente()">
+	 {{c.nuevo == true ? 'Nuevo Cliente' : 'Cancelar'}}
+		</a>
+		<div class="collapse" id="collapseExample">
+			<form class="form-horizontal" role="form" data-parsley-validate>
+		  	<div class="well">	    
+			    <div class="row">
+
+			    	<div class="col-sm-4">
+			    		<label>Nombre</label>
+				    	<input type="text" class="form-control" placeholder="Nombre" ng-model="c.cliente.nombre" >
+			    	</div>
+
+			    	<div class="col-sm-4">
+			    		<label>Apellido Paterno </label>
+				    	<input type="text" class="form-control" placeholder="Apellido Paterno" ng-model="c.cliente.apPaterno" >
+			    	</div>
+			    	<div class="col-sm-4">
+			    		<label>Apellido Materno</label>
+				    	<input type="text" class="form-control" placeholder="Apellido Materno" ng-model="c.cliente.apMaterno" >
+			    	</div>
+
+			    	<div class="col-sm-4">
+			    		<label>RFC</label>
+				    	<input type="text" class="form-control" placeholder="RFC" ng-model="c.cliente.rfc" >
+						</div>
+						<!-- <div class="col-sm-4">Clave: {{}}
+			    	</div>		 -->
+					</div>
+			  </div>
+				<div class="row">
+					<div class="col-sm-12">
+						<input type="submit" ng-click="c.validar(c.cliente,form)" value="Guardar" class="btn btn-primary" ng-show="c.action">
+						<input type="submit" ng-click="c.actualizar(c.cliente)" value="Actualizar" class="btn btn-primary" ng-show="!c.action">				
+					</div>
+				</div>	  
+		  </form>
+		</div>
+	</div>
+</div>
+
+<!-- List -->
+<div class="row">
+	<div class="col-sm-12">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th width="15%"><div class="text-center">clave</div></th>
+					<th width="20%"><div class="text-center">Nombre</div></th>
+					<th width="10%"></th>
+				</tr>
+			</thead>
+			<tbody>
+		    <tr ng-repeat="cliente in c.clientes">
+					<td class="text-center">{{cliente.clave}}</td>
+					<td class="text-center">{{cliente.nombre}} {{cliente.apPaterno}} {{cliente.apMaterno}}</td>
+					<td>
+				    <div class="text-center">
+					    <div class="btn-group">
+							  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    <span class="caret"></span>
+							    <span class="sr-only">Toggle Dropdown</span>
+							  </button>
+							  <ul class="dropdown-menu text-left">
+							    <li><a href="#" ng-click="c.editar(cliente._id)"><i class="fa fa-pencil"></i> Editar</a></li>
+							  <li><a href="#" ng-click="c.cambiarEstatus(cliente._id)"><i class="fa fa-trash"></i> Desactivar</a></li>
+							  </ul>
+							</div>
+				    </div>	
+			    </td>
+		    </tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+

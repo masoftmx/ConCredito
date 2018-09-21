@@ -1,0 +1,110 @@
+<h2>Usuarios</h2>
+<div class="row">
+	<div class="col-sm-12">
+		<a class="btn btn-{{user.nuevo == true ? 'primary' : 'danger'}}" role="button" data-toggle="collapse" 
+			href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="nuevousuario" ng-click="user.nuevoUsuario()">
+		 {{user.nuevo == true ? 'Nuevo' : 'Cancelar'}}
+		</a>
+		
+		<div class="collapse" id="collapseExample">
+			<form class="form-horizontal" role="form" data-parsley-validate>
+		  	<div class="well">	    
+			    <div class="row">
+			    	<div class="col-sm-12">	
+			    	<div class="col-sm-4">					    
+				    	<label>Usuario</label>
+				    	<input type="text" class="form-control" placeholder="Usuario" ng-model="user.usuario.usuario" required>
+			    	</div>
+			    	<div class="col-sm-4">					    
+				    	<label>Contraseña</label>
+				    	<input type="password" class="form-control" placeholder="Contraseña" ng-model="user.usuario.contrasena" required>
+			    	</div>		    				    	    
+			    	<div class="col-sm-4">					    
+				    	<label>Confirmar Contraseña</label>
+				    	<input type="password" class="form-control" placeholder="Confirmar Contraseña" ng-model="user.usuario.confirmarContrasena" required>
+					</div>
+			    	<div class="col-sm-4">
+			    		<label>Nombre </label>
+				    	<input type="text" class="form-control" placeholder="Nombre" ng-model="user.usuario.nombre" required>
+			    	</div>
+			    	<div class="col-sm-4">
+			    		<label>Email </label>
+				    	<input type="text" class="form-control" placeholder="Email" ng-model="user.usuario.email" required>
+			    	</div>
+	 			  
+					  	
+					 
+			    	</div>
+			    </div>  
+			    </div> 
+				<div class="row">
+					<div class="col-sm-12">
+						<input type="submit" ng-click="user.guardar(usuario)" value="Enviar" class="btn btn-primary" ng-show="user.action">
+						<input type="submit" ng-click="user.actualizar(usuario)" value="Actualizar" class="btn btn-primary" ng-show="!user.action">	
+
+					</div>
+				</div>
+				  
+		  </form>
+		</div>
+	</div>
+</div>
+<br/>
+
+
+
+<!-- List -->
+<div class="row">
+	<div class="col-sm-12">
+		<table class="table table-bordered">
+                <thead>
+                	<tr>
+					<th width="20%"><div class="text-center">Usuario</div></th>
+					<th width="20%"><div class="text-center"> Nombre</div></th>					
+					<th width="10%">
+						<div class="text-center">
+							Estatus
+						</div>
+					</th>
+					<th width="10%">
+						<div class="text-center">
+							Acciones
+						</div>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+		    <tr ng-repeat="usuario in user.usuarios">
+			    <td> {{usuario.usuario}}</td>
+			    <td> {{usuario.nombre}}</td>
+	
+
+			    <td>
+				    <div class="text-center">
+				    	<span ng-if="usuario.estatus" class="label label-success">
+							  Activo
+							</span>
+							<span ng-if="!usuario.estatus" class="label label-danger">
+							  Inactivo
+							</span>
+				    </div>
+			    </td>
+			    <td>
+				    <div class="text-center">
+					    <div class="btn-group">
+							  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    <span class="caret"></span>
+							    <span class="sr-only">Toggle Dropdown</span>
+							  </button>
+							  <ul class="dropdown-menu text-left">
+							    <li><a href="#" ng-click="user.editar(usuario._id)"><i class="fa fa-pencil"></i> Editar</a></li>
+							  <li><a href="#" ng-click="user.cambiarEstatus(usuario._id)"><i class="fa fa-trash"></i> Desactivar</a></li>
+							  </ul>
+							</div>
+				    </div>				    
+			    </td>
+		    </tr>
+			</tbody>
+		</table>
+	</div>
+</div>

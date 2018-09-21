@@ -1,0 +1,29 @@
+<h2></h2>
+<a ui-sref="root.nuevaVenta" class="btn btn-primary pull-right">Nuevas Ventas</a>
+<div class="col-sm-12">  
+      <h3 class="dark-grey">Ventas Activas</h3>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th width="10%">Folio de venta</th>
+					<th width="10%">Clave cliente</th>
+					<th width="30%">Nombre</th>
+          <th width="15%">Total</th>
+          <th width="15%">Fecha</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="venta in ven.ventas">
+					<td class="text-center">{{venta.clave}}</td>
+					<td class="text-center">{{venta.cliente[0].clave}}</td>
+					<td class="text-center">{{venta.cliente[0].nombreCompleto}}</td>
+					<td class="text-center">{{venta.adeudo | currency}}</td>
+					<td class="text-center">{{venta.fechaCreacion | date:"dd-MM-yyyy"}}</td>
+				    
+				</tr>
+		
+				
+				
+			</tbody>
+		</table>
+	</div>

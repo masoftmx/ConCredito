@@ -1,0 +1,38 @@
+<nav>
+	<ul data-smart-menu> 
+		<li data-menu-collapse ng-show="root.ticket(currentUser.profile.empleado_id)">
+			<a>
+				<!-- <i class="fa fa-lg fa-fw  fa-tag"></i> -->
+				<span class="menu-item-parent">Inicio</span>
+			</a>
+				<ul>
+				<li>
+		      <a ui-sref="root.ventas">
+		        <span class="menu-item-parent">Ventas</span>
+		      </a>
+		    </li>
+				<li>
+		      <a ui-sref="root.clientes">
+		        <span class="menu-item-parent">Clientes</span>
+		      </a>
+				</li>
+				<li>
+					<a ui-sref="root.articulos">
+						<span class="menu-item-parent">Articulos</span>
+					</a>
+				</li>
+				<li>
+					<a ui-sref="root.configuraciones">
+						<span class="menu-item-parent">Configuración</span>
+					</a>
+				</li>
+				</ul>
+		</li>
+	    <li class=" pull-right" >
+	     <a  align="right" ng-click="root.linkers(currentUser.profile.empleado_id)">
+	      <i  class="fa fa-lg fa-fw fa fa-user"></i>
+	      <span class="menu-item-parent">{{root.user}}</span>
+	    </a>
+	    </li>
+  </ul>
+</nav>

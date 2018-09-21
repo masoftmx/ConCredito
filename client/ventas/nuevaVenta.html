@@ -1,0 +1,137 @@
+
+<div class="row">
+		<article class="col-sm-12 sortable-grid ui-sortable">
+			<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" role="widget">
+				<header role="heading">
+					<span class="widget-icon"> <i class="fa fa-align-justify"></i> </span>
+					<h2>Registro de Ventas</h2>
+				<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+				<div role="content">
+					<div class="jarviswidget-editbox">
+					</div>
+					<div class="widget-body">
+						<div class="col-sm-1">
+								<label class="btn btn-sm btn-primary">Cliente</label>
+						</div>
+							<div class="col-sm-4">								
+									<select id="select" ng-options="cliente._id as cliente.nombreCompleto for cliente in ven.clientes" required ng-model="ven.venta.cliente_id" class="js-example-basic-single js-states form-control" placeholder="Seleccione" ng-change="ven.getClientes(ven.venta.cliente_id)"></select>
+							</div>
+							<div class="col-sm-2" ng-show="ven.venta.cliente">								
+								<div class="pull-right" ><strong>RFC: {{ven.venta.cliente[0].rfc}} </strong> </div>
+							</div>
+							<h1 class="pull-right">Folio Venta: {{ven.venta.clave}}</h1>
+							<div class="col-sm-12">
+									<hr class="simple">
+							</div>
+							<div class="col-sm-1">
+								<label class="btn btn-sm btn-primary">Articulos</label>
+						</div>
+							<div class="col-sm-4">
+								<select id="select" ng-options="articulo._id as articulo.descripcion for articulo in ven.articulos" required ng-model="ven.venta.articulo_id" class="js-example-basic-single js-states form-control" placeholder="Seleccione" ng-change="ven.getArticulos(ven.venta.articulo_id)"></select>
+							</div>
+							<div class="col-sm-1"><a class="btn btn-sm btn-success" ng-click="ven.agregar(ven.venta.articulo_id)">
+								<i class="fa fa-plus fa-lg"></i></a>
+							</div>
+							<div class="col-sm-12">
+									<hr class="simple">
+							</div>
+							<div class="col-sm-12" ng-show="ven.articuloYaSeleccionado">
+									<div class="row">
+											<div class="col-sm-12">
+												<table class="table table-bordered">
+													<thead>
+														<tr>
+															<th width="20%"><div class="text-center">Descripción Articulo</div></th>
+															<th width="15%"><div class="text-center">Modelo</div></th>
+															<th width="15%"><div class="text-center">Cantidad</div></th>
+															<th width="15%"><div class="text-center">Precio</div></th>
+															<th width="15%"><div class="text-center">Importe</div></th>
+															<th width="10%"><div class="text-center">Importe</div></th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr ng-repeat="config in ven.articulosArray">
+															<td class="text-center">{{config.descripcion}}</td>
+															<td class="text-center">{{config.modelo}}</td>
+															<td class="text-center">
+																			<input type="number" name="Cantidad"  class="form-control text-center" placeholder="Cantidad" ng-change="ven.existencia(config)" ng-model="config.cantidad" >
+															</td>
+															<td class="text-center">{{config.precioFinal}}</td>
+															<td class="text-center">{{config.precioFinal}}</td>
+															<td class="text-center">
+																<a class="btn btn-sm btn-danger" ng-click="ven.borrarArticulo($index,config)"><i class="fa fa-close"></i></a>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+							</div>
+								<div class="col-sm-12" ng-show="ven.articuloYaSeleccionado">
+									<hr>
+							</div>
+							<div class="col-sm-12" ng-show="ven.articuloYaSeleccionado">
+								<div class="row">
+										<div class="col-sm-4 pull-right"  ><strong>Enganche: </strong> {{ven.venta.enganche}} </div>
+								</div>
+								<div class="row" ng-show="ven.articuloYaSeleccionado">
+									<div class="col-sm-4 pull-right"  ><strong>Bonificación Enganche: </strong> {{ven.venta.bonificacion}} </div>
+							</div>
+							<div class="row" ng-show="ven.articuloYaSeleccionado">
+								<div class="col-sm-4 pull-right"  ><strong>Total: </strong> {{ven.venta.totalAdeudo}} </div>
+						</div>
+						<hr>
+			
+							<div class="col-sm-12" ng-if="rc.abonos.length != 0">
+								<div class="row">
+										<div class="col-sm-12">
+											<table class="table table-bordered">
+												<thead>
+													<tr>
+														<th width="20%"><div class="text-center"></div></th>
+														<th width="15%"><div class="text-center"></div></th>
+														<th width="15%"><div class="text-center">ABONOS MENSUALES</div></th>
+														<th width="15%"><div class="text-center"></div></th>
+														<th width="5%"><div class="text-center"></div></th>
+														
+													
+													</tr>
+												</thead>
+												<tbody>
+													<tr ng-repeat="item in ven.abonos">
+														<td class="text-center">{{item.numero}} ABONOS DE</td>
+														<td class="text-center">{{item.plazo | currency}}</td>
+														<td class="text-center">TOTAL A PAGAR {{item.cantidad | currency}}</td>
+														<td class="text-center">SE AHORRA {{item.ahorro | currency}} </td>
+														<td class="text-center">
+															<input id="seleccionPlazo" type="radio" name="seleccionPlazo" class="form-control text-center" ng-checked="ven.venta.plazoSeleccionado" ng-click="ven.plazoSeleccionado(item)"> 
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+						</div>
+					
+							<hr>
+							<div class="row">
+								<a ng-show="!ven.btnGuardar" class="btn btn-md btn-success pull-right" ng-click="ven.mostrarPlazos()">Siguiente</a>
+								<a ng-show="ven.btnGuardar" class="btn btn-md btn-success pull-right" ng-click="ven.guardar(ven.venta)">Guardar</a>
+								<a class="btn btn-md btn-success pull-right" ng-click="ven.cancelar()" >Cancelar</a>
+								
+						</div>
+							</div>
+
+					</div>
+				</div>
+			</div>
+		</article>
+	
+
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+$(".js-example-basic-single").select2();
+});
+</script>
+

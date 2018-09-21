@@ -1,0 +1,129 @@
+<div class="content">
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="well well-sm">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+					<div class="well well-light well-sm no-margin no-padding">
+						<div class="row">
+							<div class="col-sm-12">
+								<div id="myCarousel" class="carousel profile-carousel">
+									<div class="air air-bottom-right padding-10">
+										<form class="form-inline">
+											<div class="form-group">
+												<label for="estatus" class="txt-white"><strong>Estatus</strong></label>
+												<select class="form-control" ng-model="cl.cliente.profile.estatus" ng-change="cl.cambiarEstatus(cl.cliente.profile.estatus)">
+													<option value="1">Registrado</option>
+													<option value="2">Activo</option>
+													<option value="3">Preferente</option>
+													<option value="4">Baja</option>
+												</select>
+											</div>
+											<a ng-if="currentUser.roles[0] == 'gerente'" ui-sref="root.editarCliente({cliente_id : cl.cliente._id})" class="btn txt-color-white bg-color-pinkDark btn-sm">
+		 										<i class="fa fa-pencil"></i> Modificar
+		 									</a>
+										</form>
+									</div>
+									<div class="air air-top-left padding-10">
+										<h4 class="txt-color-white font-md"><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{cl.fechaActual | date:'dd-MM-yyyy'}}</h4>
+									</div>
+									<ol class="carousel-indicators">
+									</ol>
+									<div class="carousel-inner">
+										<div class="item active">
+											<img src="img/demo/s1.jpg" alt="" style="width:100%">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="col-sm-2 profile-pic" style="text-align:left;width:initial;">
+								    <img style="max-width:200px;" src="{{cl.tieneFoto(cl.cliente.profile.sexo, cl.cliente.profile.fotografia)}}" >
+								    <div class="ribbon-wrapper-alumno-profile" style="z-index: 10">
+								      <div class="ribbon-alumno {{cl.getEstatusNombreColor(cl.cliente.profile.estatus)}}">{{cl.getEstatusNombre(cl.cliente.profile.estatus)}}</div>
+								    </div>
+										<div class="padding-10">
+											<h4 class="font-md"><strong>{{cl.compras.length}}</strong>
+											<br>
+											<small>Compras</small></h4>
+										</div>
+										<div class="padding-10">
+											<h4 class="font-md"><strong>{{cl.cliente.profile.puntos}}</strong>
+											<br>
+											<small>Puntos</small></h4>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<h1>{{cl.cliente.profile.nombreCompleto}}</h1>
+										<ul class="list-unstyled">
+											<li>
+												<p class="text-muted">
+													<i class="fa fa-key fa-lg"></i><strong>&nbsp;&nbsp;{{cl.cliente.username}}</strong>
+												</p>
+											</li>
+											<li>
+												<p class="text-muted">
+													<i class="fa fa-phone fa-lg"></i>&nbsp;&nbsp;<span class="txt-color-darken">{{cl.cliente.profile.tel1}}</span>
+												</p>
+											</li>
+											<li>
+												<p class="text-muted">
+													<i class="fa fa-envelope fa-lg"></i>&nbsp;&nbsp;<a href="mailto:{{cl.cliente.profile.correo}}">{{cl.cliente.profile.correo}}</a>
+												</p>
+											</li>
+											<li>
+												<p class="text-muted">
+													<i class="fa fa-birthday-cake fa-lg"></i>&nbsp;&nbsp;<span class="txt-color-darken">{{cl.cliente.profile.fechaNac | date:"dd-MM-yyyy"}}</span>
+												</p>
+											</li>
+											<li>
+												<p class="text-muted">
+													<i class="fa fa-map-marker fa-lg"></i>&nbsp;&nbsp;<span class="txt-color-darken">{{cl.cliente.profile.calleNum}}, {{cl.cliente.profile.colonia}} {{cl.cliente.profile.ciudad}}, {{cl.cliente.profile.estado}} {{cl.cliente.profile.codigoPostal}}<br>
+													</span>
+												</p>
+											</li>
+										</ul>
+										<br>
+										<p class="font-xs">
+											{{cl.cliente.profile.observacionesGenerales}}
+										</p>
+										<br>
+									</div>
+									<div class="col-sm-4">
+										<h1>&nbsp;</h1>
+										<ul class="list-unstyled">
+											<li>
+												<p class="text-muted">
+													<i class="fa fa-glass fa-lg"></i>&nbsp;&nbsp;<span class="txt-color-darken">{{cl.cliente.profile.nivelSocial}}</span>
+												</p>
+											</li>
+											<li>
+												<p class="text-muted">
+													<i class="fa fa-phone fa-lg"></i>&nbsp;&nbsp;<span class="txt-color-darken">{{cl.cliente.profile.tel2}}</span>
+												</p>
+											</li>
+											<li>
+												<p class="text-muted">
+													<i class="fa fa-gears fa-lg"></i>&nbsp;&nbsp;<span class="txt-color-darken">{{cl.cliente.profile.ocupacion.nombre}}</span>
+												</p>
+											</li>
+											<li>
+												<p class="text-muted">
+													<i class="fa fa-medium fa-lg"></i>&nbsp;&nbsp;<span class="txt-color-darken">{{cl.cliente.profile.medio.nombre}}</span>
+												</p>
+											</li>
+										</ul>
+										<br>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

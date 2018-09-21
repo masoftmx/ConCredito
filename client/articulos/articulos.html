@@ -1,0 +1,79 @@
+<h2>Articulos</h2>
+<div class="row">
+	<div class="col-sm-12">
+		<a class="btn btn-{{art.nuevo == true ? 'primary' : 'danger'}}" role="button" data-toggle="collapse" 
+			href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="nuevoArticulo" ng-click="art.nuevoArticulo()">
+	 {{art.nuevo == true ? 'Nuevo Articulo' : 'Cancelar'}}
+		</a>
+		<div class="collapse" id="collapseExample" valida>
+			<form class="form-horizontal" role="form" data-parsley-validate>
+		  	<div class="well" >	    
+			    <div class="row">
+
+			    	<div class="col-sm-3" valida>
+			    		<label>Descripción</label>
+				    	<input type="text" name="descripcion" class="form-control" placeholder="Descripción" ng-model="art.articulo.descripcion" >
+			    	</div>
+
+			    	<div class="col-sm-3" valida>
+			    		<label>Modelo </label>
+				    	<input type="text" name="modelo"  class="form-control" placeholder="Modelo" ng-model="art.articulo.modelo" >
+			    	</div>
+			    	<div class="col-sm-3" valida>
+			    		<label>Precio</label>
+				    	<input type="number" name="precio"  class="form-control" placeholder="Precio" ng-model="art.articulo.precio" >
+			    	</div>
+
+			    	<div class="col-sm-3" valida>
+			    		<label>Existencia</label>
+				    	<input type="number" name="existencia"  class="form-control" placeholder="Existencia" ng-model="art.articulo.existencia" >
+			    	</div>			
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<input type="submit" ng-click="art.validar(art.articulo,form)" value="Guardar" valida-form formulario="form" class="btn btn-primary" ng-show="art.action">
+						<input type="submit" ng-click="art.actualizar(art.articulo,form)" value="Actualizar" valida-form formulario="form" class="btn btn-primary" ng-show="!art.action">				
+					</div>
+				</div>	  
+		  </form>
+		</div>
+	</div>
+</div>
+
+<!-- List -->
+<div class="row">
+	<div class="col-sm-12">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th width="15%"><div class="text-center">Clave Articulo</div></th>
+					<th width="20%"><div class="text-center">Descripción</div></th>
+					<th width="10%"></th>
+				</tr>
+			</thead>
+			<tbody>
+		    <tr ng-repeat="articulo in art.articulos">
+					<td class="text-center">{{articulo.clave}}</td>
+					<td class="text-center">{{articulo.descripcion}}</td>
+					<td>
+				    <div class="text-center">
+					    <div class="btn-group">
+							  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    <span class="caret"></span>
+							    <span class="sr-only">Toggle Dropdown</span>
+							  </button>
+							  <ul class="dropdown-menu text-left">
+							    <li><a href="#" ng-click="art.editar(articulo._id)"><i class="fa fa-pencil"></i> Editar</a></li>
+							  <li><a href="#" ng-click="art.cambiarEstatus(articulo._id)"><i class="fa fa-trash"></i> Desactivar</a></li>
+							  </ul>
+							</div>
+				    </div>	
+			    </td>
+		    </tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+

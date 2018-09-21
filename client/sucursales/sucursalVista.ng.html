@@ -1,0 +1,81 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="well well-sm">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+					<div class="well well-light well-sm no-margin no-padding">
+						<div class="row">
+							<div class="col-sm-12">
+								<div id="myCarousel" class="carousel profile-carousel">
+									
+										
+								
+									<div class="air air-top-left padding-10">
+										<h4 class="txt-color-white font-md"><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{sucu.sucursale.fecha | date:"dd-MM-yyyy"}}<small> <a class="btn btn-primary" href="alumnos/{{al.alumno._id}}" ng-show="elMismo(alumno._id)">Modificar</a></small></h4>
+									</div>
+									
+									<ol class="carousel-indicators">
+									
+									</ol>
+									<div class="carousel-inner">
+										<!-- Slide 1 -->
+										<div class="item active">
+											<img src="{{sucu.sucursale.fondo || 'img/imagenInter'}}" alt="" style="width:100%">
+										</div>
+										<!-- Slide 2 -->
+			
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="col-sm-3 profile-pic">
+										<img width="250px" src="{{sucu.sucursale.imagen}}" style="max-width: 200px;">
+										
+									</div>
+
+
+									<div class="air air-bottom-right padding-10" ng-show="currentUser.username == 'admin'" >
+									<div class="col-sm-8">
+									<input type="text" id="input" class="form-control" style="visibility: visible;" placeholder="Pegar imagen aqui" ng-model="sucu.sucursale.fondo" >
+								
+									</div>
+										<a  style="visibility: visible;" ng-click="sucu.editarFondo(sucu.sucursale)" id="guardar" class="btn txt-color-white bg-color-teal btn-sm" ng-show="currentUser.username == 'admin'">Guardar</a>
+										<a  style="visibility: hidden;" ng-click="sucu.mostrarBtnFondo(sucu.sucursale)" id="botonMostrar" class="btn txt-color-white bg-color-teal btn-sm" ng-show="currentUser.username == 'admin'">Editar Fondo</a>
+									
+								 </div>
+
+
+								 
+									<div class="col-sm-6">
+										<h1>{{sucu.sucursale.nombre}}
+										<br>
+										<small>{{sucu.sucursale.ciudad}}</small></h1>
+										<ul class="list-unstyled">
+											<li>
+												<p class="text-muted">
+													<i class="fa fa-phone"></i>&nbsp;&nbsp;<span class="txt-color-darken">{{sucu.sucursale.telefono}}</span>
+												</p>
+											</li>
+											<li>
+												<p class="text-muted">
+													<i class="fa fa-envelope"></i>&nbsp;&nbsp;<a href="mailto:{{al.alumno.correo}}">{{sucu.sucursale.correo}}</a>
+												</p>
+											</li>
+											<li>
+											<p class="text-muted">
+											 <span class="txt-color-darken">{{sucu.sucursale.direccion}}</span>
+												</p>
+											</li>
+										</ul>
+	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

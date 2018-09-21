@@ -1,0 +1,76 @@
+<h2>Configuraciones</h2>
+<div class="row">
+	<div class="col-sm-12">
+		<a ng-if="c.configuraciones ==  '' " class="btn btn-{{c.nuevo == true ? 'primary' : 'danger'}}" role="button" data-toggle="collapse" 
+			href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="nuevoConfiguracion" ng-click="c.nuevoConfiguracion()">
+	 {{c.nuevo == true ? 'Nueva Configuracion' : 'Cancelar'}}
+		</a>
+		<div class="collapse" id="collapseExample">
+			<form class="form-horizontal" role="form" data-parsley-validate>
+		  	<div class="well">	    
+			    <div class="row">
+
+			    	<div class="col-sm-4">
+			    		<label>Tasa Financiamiento</label>
+				    	<input type="number" class="form-control" placeholder="Tasa Financiamiento" ng-model="c.config.tasa" >
+			    	</div>
+
+			    	<div class="col-sm-4">
+			    		<label>% Enganche  </label>
+				    	<input type="number" class="form-control" placeholder="Enganche" ng-model="c.config.enganche" >
+			    	</div>
+			    	<div class="col-sm-4">
+			    		<label>Plazo Máximo</label>
+				    	<input type="numbre" class="form-control" placeholder="Plazo Máximo" ng-model="c.config.plazo" >
+			    	</div>			
+					</div>
+			  </div>
+				<div class="row">
+					<div class="col-sm-12">
+						<input type="submit" ng-click="c.guardar(c.config)"  value="Guardar" class="btn btn-primary" ng-if="c.configuraciones ==  '' ">
+						<input type="submit" ng-click="c.actualizar(c.config)" value="Actualizar" class="btn btn-primary" ng-show="!c.action">				
+					</div>
+				</div>	  
+		  </form>
+		</div>
+	</div>
+</div>
+
+<!-- List -->
+<div class="row">
+	<div class="col-sm-12">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th width="15%"><div class="text-center">Tasa</div></th>
+					<th width="20%"><div class="text-center">Enganche</div></th>
+					<th width="20%"><div class="text-center">Plazo Máximo</div></th>
+					<th width="10%"><div class="text-center">Plazo Máximo</div></th>
+				</tr>
+			</thead>
+			<tbody>
+		    <tr ng-repeat="config in c.configuraciones">
+					<td class="text-center">{{config.tasa}}</td>
+					<td class="text-center">{{config.enganche}}</td>
+					<td class="text-center">{{config.plazo}}</td>
+					<td>
+				    <div class="text-center">
+					    <div class="btn-group">
+							  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    <span class="caret"></span>
+							    <span class="sr-only">Toggle Dropdown</span>
+							  </button>
+							  <ul class="dropdown-menu text-left">
+							    <li><a href="#" ng-click="c.editar(config._id)"><i class="fa fa-pencil"></i> Editar</a></li>
+							  <!-- <li><a href="#" ng-click="c.cambiarEstatus(config._id)"><i class="fa fa-trash"></i> Desactivar</a></li> -->
+							  </ul>
+							</div>
+				    </div>	
+			    </td>
+		    </tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
