@@ -123,6 +123,18 @@ angular.module("interCeramic")
 
 		}
 
+		this.borrarArticulo = function($index,item)
+		{
+			console.log(item)
+       rc.total = rc.total - item.precioFinal
+			// 	rc.venta.enganche = (rc.configuracion[0].enganche/100) * rc.articulo.precioFinal
+			// rc.venta.bonificacion = rc.venta.enganche * ((rc.configuracion[0].tasa * rc.configuracion[0].plazo/100))
+			// rc.venta.totalAdeudo= rc.total - rc.venta.enganche -rc.venta.bonificacion 
+
+			rc.articulosArray.splice($index, 1)
+			
+		}
+
 		this.mostrarPlazos = function($index,item)
 		{
 			if(rc.articulosArray.length <= 0 || rc.venta.cliente_id == undefined){
@@ -213,17 +225,7 @@ angular.module("interCeramic")
 		    
 		}
 
-		this.borrarArticulo = function($index,item)
-		{
-			console.log(item)
-//rc.total = rc.total - item.precioFinal
-			// 	rc.venta.enganche = (rc.configuracion[0].enganche/100) * rc.articulo.precioFinal
-			// rc.venta.bonificacion = rc.venta.enganche * ((rc.configuracion[0].tasa * rc.configuracion[0].plazo/100))
-			// rc.venta.totalAdeudo= rc.total - rc.venta.enganche -rc.venta.bonificacion 
-
-		//	rc.articulosArray.splice($index, 1)
-			
-		}
+		
 
 	
 	this.editar = function(id)
