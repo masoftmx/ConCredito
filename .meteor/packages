@@ -4,18 +4,14 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-base             # Packages every Meteor app needs to have
-mobile-experience       # Packages for a great mobile UX
-mongo                   # The database Meteor supports right now
-session                 # Client-side reactive dictionary for your app
-jquery                  # Helpful client-side library
-tracker                 # Meteor's client-side reactive programming library
-
-es5-shim                # ECMAScript 5 compatibility for older browsers.
-
-insecure                # Allow all DB writes from clients (for prototyping)
+meteor-base@1.2.0             # Packages every Meteor app needs to have
+mobile-experience@1.0.5       # Packages for a great mobile UX
+mongo@1.3.1                   # The database Meteor supports right now
+session@1.1.7                 # Client-side reactive dictionary for your app
+jquery@1.11.10                  # Helpful client-side library
+tracker@1.1.3                 # Meteor's client-side reactive programming library
+#insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
 fourseven:scss
-reywood:bootstrap3-sass
 reywood:font-awesome-sass
 angular
 angular:angular-sanitize
@@ -24,32 +20,34 @@ angular:angular-cookies
 angularui:angular-ui-router
 s2corp:angular-ui-grid
 dvelopment:angular-datepicker
-accounts-password
+accounts-password@1.5.0
 vishalm:angular-toastr
-
-mizzao:jquery-ui
 alanning:roles
 momentjs:moment
 angularui:angular-ui-bootstrap
-okland:camera-ui
-natestrauser:select2
-angularui:ui-select
-tomi:upload-server
-tomi:upload-jquery
-email
-cfs:standard-packages
-cfs:gridfs
-danialfarid:ng-file-upload
-froala:editor
-summernote:standalone
-barbatus:stars-rating
-semantic:ui-rating
+reywood:publish-composite
+mdg:camera
 zuuk:stale-session
-peppelg:bootstrap-3-modal
-plraphael:angular-ui-clock
-risul:bootstrap-colorpicker
-ian:accounts-ui-bootstrap-3
-fullcalendar:fullcalendar
-standard-minifier-css
-standard-minifier-js
-huei90:angular-validation@=1.3.2
+standard-minifier-css@1.3.5
+standard-minifier-js@2.2.0
+huei90:angular-validation
+rshashkov:angular-meteor-breadcrumb
+tmeasday:publish-counts
+angularutils:pagination
+angular-meteor-auth
+danialfarid:ng-file-upload
+peerlibrary:fs
+modules@0.11.0
+meteorhacks:aggregate
+
+shell-server@0.3.0
+email@1.2.3
+mrt:nprogress
+mobile-status-bar@1.0.14
+tgienger:angular-dropzone
+cfs:standard-packages
+natestrauser:select2
+dynamic-import@0.2.0
+theara:moneyjs
+lepozepo:accounting
+zeroasterisk:jquery-ui-bootstrap3
